@@ -1,0 +1,13 @@
+module Posts
+
+	def render_it(options, assigns = {})
+		render options, assigns
+	end
+
+	def Posts.renderPost(the_post)
+		@post = the_post
+
+		render :partial => 'shared/post'
+	end
+
+end

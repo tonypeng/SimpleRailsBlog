@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>SimpleBlog - <%= @page_title %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header" style="background-color: #333; color: #eee; text-align: center; padding-top: 30px; padding-bottom: 30px; border-bottom: 5px solid #aaa; margin-bottom: 30px;">
+<span id="page_title"><a href="/" style="color: #eee;">simple blog</a></span>
+</div>
+<div id="content" style="min-height: 200px;">
+	<%= yield %>
+</div>
+<div id="footer" style="background-color: #fff; color: #111; text-align: center; padding-top: 30px; padding-bottom: 30px; border-top: 5px solid #aaa; margin-bottom: 30px;">
+&copy; 2014 <a href="http://www.tonypeng.com/">Tony Peng</a>
+</div>
+</body>
+</html>

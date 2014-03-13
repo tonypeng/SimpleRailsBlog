@@ -1,0 +1,38 @@
+class CommentsController < ApplicationController
+	def index
+		redirect_to '/';
+	end
+
+	def create
+		@comment = Comment.new(post_params())
+		@comment.post_id = params[:post_id]
+		@comment.save
+
+		redirect_to Post.find(@comment.post_id)
+	end
+
+	def new
+		redirect_to '/';
+	end
+
+	def edit
+		redirect_to '/';
+	end
+
+	def show
+		redirect_to '/';
+	end
+
+	def update
+		redirect_to '/';
+	end
+
+	def destroy
+		redirect_to '/';
+	end
+
+	private
+		def post_params
+			params.require(:comment).permit(:title, :text)
+		end
+end

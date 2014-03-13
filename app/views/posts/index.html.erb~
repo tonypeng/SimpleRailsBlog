@@ -1,0 +1,6 @@
+<% @posts.each_with_index do |post, index| %>
+<% separator = index != 0 ? ' border-top: 1px solid #000;' : ''; %>
+<div style="margin-left: auto; margin-right: auto; width: 500px; padding-bottom: 15px; <%= separator %>">
+	<%= render :partial => 'shared/post', :locals => {the_post: post} %>
+</div>
+<% end %>

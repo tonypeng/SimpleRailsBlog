@@ -1,0 +1,31 @@
+<div style="margin-left: auto; margin-right: auto; width: 500px; padding-bottom: 15px;">
+<div class="post_container" style="border-bottom: 1px solid #000; padding-bottom: 10px; margin-bottom: 10px;">
+	<%= render :partial => 'shared/post', :locals => {the_post: @post} %>
+</div>
+<div class="post_comment_container" style="border-bottom: 1px solid #000; padding-bottom: 10px;">
+<strong>Post a comment:</strong>
+<%= form_for :comment, { url: comments_path + '?post_id=' + @post.id.to_s, html: { :style => 'width: 100%;' } } do |f|%>
+
+	<%= f.label :author %><br />
+	<%= f.text_field :author, :style => 'width: 100%;' %><br />
+	<br />
+	<%= f.label :text %><br />
+	<%= f.text_area :text, :style => 'width: 100%; height: 150px;' %><br />
+	<br />
+	<div style="text-align: center">
+	<%= f.submit 'Post!' %>
+	</div>
+
+<% end %>
+</div>
+<div class="comments_container" style="padding-top: 15px;">
+Comments:<br />
+<% comments = Comment.where(post_id: @post.id)%>
+<% comments.each_with_index do |comment, index| %>
+<% separator = index != 0 ? ' border-top: 1px solid #000;' : ''; %>
+<div style="margin-left: auto; margin-right: auto; width: 500px; padding-top: 15px; padding-bottom: 15px; <%= separator %>">
+	<%= render :partial => 'shared/comment', :locals => {the_comment: comment} %>
+</div>
+<% end %>
+</div>
+</div>

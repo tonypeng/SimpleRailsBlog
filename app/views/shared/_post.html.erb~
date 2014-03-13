@@ -1,0 +1,6 @@
+<div id="<%= the_post.id %>">
+<span class="post_title"><a href="/posts/<%= the_post.id %>"><%= the_post.title %></a></span><br />
+<span class="post_detail"><%= the_post.created_at %></span><br />
+<br />
+<%= the_post.text %>
+</div>
